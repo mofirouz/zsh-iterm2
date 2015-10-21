@@ -8,4 +8,7 @@ Simply copy all files and drop them to your home folder. If you'd like to have c
 Follow this article to setup Zsh in OS X:      
 http://jilles.me/badassify-your-terminal-and-shell/
 
+###Install `Cobalt2` Zsh theme:
+https://github.com/wesbos/Cobalt2-iterm
+
 
