@@ -1,10 +1,12 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/mo/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="cobalt2"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -12,10 +14,10 @@ ZSH_THEME="cobalt2"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -49,18 +51,13 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew npm go mix)
+plugins=(git, brew, go, zsh-autosuggestions)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH="/usr/local/bin:$PATH"
-
-source $ZSH/oh-my-zsh.sh
-source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-. `brew --prefix`/etc/profile.d/z.sh
-source ~/.bash_aliases
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -76,7 +73,7 @@ source ~/.bash_aliases
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -86,3 +83,31 @@ source ~/.bash_aliases
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+. `brew --prefix`/etc/profile.d/z.sh
+
+export HOMEBREW_GITHUB_API_TOKEN=5e73c0aab58cc9eb0dcb4353c2be812dfaefbd5f
+export GITHUB_TOKEN=5be01645738be19fb75e2847f5cbabfd3f567382
+export COCKROACH_METRICS_SAMPLE_INTERVAL=1000h
+
+export GOPATH="/Users/mo/Documents/go"
+launchctl setenv "GOPATH", $GOPATH
+
+export PATH="$HOME/.jenv/bin:$PATH"
+export PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$GOPATH/bin:$PATH"
+export PATH="$GOPATH/src/nakama/build/dev:$PATH"
+export PATH="$GOPATH/src/nakama-enterprise/build/dev:$PATH"
+export PATH="$GOPATH/src/nakama-liveops/build/dev:$PATH"
+launchctl setenv "PATH", $PATH
+eval "$(jenv init -)"
+
+alias rnas="ssh w14.mofirouz.com -p 56874"
+alias nas="ssh 192.168.86.2"
+alias seed="ssh user@seed.mofirouz.com"
+alias hl="cd ~/Documents/Heroic\ Labs"
+alias pr="git pull --rebase"
+alias na="cd ~/Documents/go/src/nakama"
+alias nae="cd ~/Documents/go/src/nakama-enterprise"
